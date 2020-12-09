@@ -106,7 +106,7 @@ include 'header.tpl.php';
                 </table>
             <?php
         }
-        echo "<br><br><form action='' method='post'>You can add a new task clicking here ➤ <input type='submit' name='insert' value='Add task'></form>";
+        echo "<br><br><br><form action='' method='post'>You can add a new task clicking here ➤ <input type='submit' name='insert' value='Add task'></form>";
         if (isset($_POST['insert'])) {
             ?>
                 <table class="table">
