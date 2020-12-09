@@ -35,7 +35,7 @@ final class Session
     public function delete($key)
     {
         if (array_key_exists($key, $_SESSION)) {
-            unser($_SESSION[$key]);
+            unset($_SESSION[$key]);
             return true;
         }
         return false;
