@@ -64,7 +64,7 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['passw'])) {
 				</div>
 				<div class="card-footer">
 					<div class="d-flex justify-content-center links">
-						Don't have an account?<a href="/register">Sign Up</a>
+						Don't have an account?<a href="<?=BASE?>register">Sign Up</a>
 					</div>
 					<div class="d-flex justify-content-center">
 						<a href="#">Forgot your password?</a>
