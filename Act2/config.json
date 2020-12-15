@@ -4,15 +4,19 @@
         "dbhost":"localhost",
         "dbname":"prouf1",
         "dbuser":"prouf1",
-        "dbpass":"linuxlinux"
+        "dbpass":"linuxlinux",
+        "web":"/",
+        "root":"/"
 
     },
     "dbconf_pro":{
         "driver":"mysql",
         "dbhost":"GoSa.cesnuria.com",
         "dbname":"GoSa_prouf1",
-        "dbuser":"",
-        "dbpass":""
+        "dbuser":"GoSa_prouf1",
+        "dbpass":"linuxlinux",
+        "web":"/m7/todofw/Act2/",
+        "root":"/m7/todofw/Act2/"
         
     }
 }
