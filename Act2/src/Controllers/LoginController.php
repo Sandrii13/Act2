@@ -29,8 +29,9 @@ final class LoginController extends Controller
             $pass = filter_input(INPUT_POST, 'passw', FILTER_SANITIZE_STRING);
 
             $user = $this->auth($email, $pass);
-
+        
             if ($user) {
+                
                 $_SESSION['user'] = $user;
                 //si l'usuari es valid
                 if (isset($_POST['remember']) && ($_POST['remember'] == 'on' || $_POST['remember'] == '1')) {
@@ -49,13 +50,12 @@ final class LoginController extends Controller
     //Función para autentificar los usuarios
     private function auth($email, $pass): bool
     {
-
         try {
             $stmt = $this->getDB()->prepare('SELECT * FROM users WHERE email=:email LIMIT 1');
             $stmt->execute([':email' => $email]);
             $count = $stmt->rowCount();
             $row = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
+            
             if ($count == 1) {
                 $user = $row[0];
                 $res = password_verify($pass, $user['passw']);
