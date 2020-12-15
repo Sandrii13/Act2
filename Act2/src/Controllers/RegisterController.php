@@ -33,7 +33,7 @@ final class RegisterController extends Controller
             $table = 'users';
             $data = ['email' => $email, 'uname' => $user, 'passw' => $pass];
 
-            $ins = $this->insert($table, $data);
+            $ins = $this->getDB()->insert($table, $data);
 
             if ($ins) {
                 $_SESSION['user'] = $ins;
@@ -45,39 +45,5 @@ final class RegisterController extends Controller
         } else {
             header('Location:' . BASE . 'register');
         }
-    }
-    //Función insert
-    private function insert($table, $data): bool
-    {
-
-        if (is_array($data)) {
-
-            $columns = '';
-            $bindv = '';
-            $values = null;
-
-            foreach ($data as $column => $value) {
-                $columns .= '`' . $column . '`,';
-                $bindv .= '?,';
-                $values[] = $value;
-            }
-
-            $columns = substr($columns, 0, -1);
-            $bindv = substr($bindv, 0, -1);
-
-            $sql = "INSERT INTO {$table}({$columns}) VALUES ({$bindv})";
-
-            try {
-                $stmt = $this->getDB()->prepare($sql);
-
-                $stmt->execute($values);
-            } catch (\PDOException $e) {
-                echo $e->getMessage();
-                return false;
-            }
-
-            return true;
-        }
-        return false;
     }
 }
