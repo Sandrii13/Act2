@@ -5,7 +5,7 @@ namespace App;
 class DB extends \PDO
 {
     static $instance;
-    protected array $config;
+    protected $config;
 
     static function singleton()
     {
